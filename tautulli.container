@@ -1,0 +1,30 @@
+[Unit]
+Description=Tautulli - Plex Monitoring
+# Ensures Tautulli starts after the network and the Plex service
+After=network-online.target plex.service
+
+[Container]
+Image=ghcr.io/tautulli/tautulli:latest
+ContainerName=tautulli
+AutoUpdate=registry
+
+# Direct access to Plex logs and host network
+UserNS=host
+Network=host
+
+# USER CONFIGURATION: Replace 1000 with your actual UID/GID
+Environment=PUID=1000
+Environment=PGID=1000
+Environment=TZ=America/New_York
+
+# STORAGE CONFIGURATION: Replace /home/user/ with your actual paths
+Volume=/home/user/plex/tautulli-config:/config
+# Read-only access to Plex logs for monitoring
+Volume=/home/user/plex/config/Library/Application Support/Plex Media Server/Logs:/logs:ro
+
+[Service]
+Restart=on-failure
+TimeoutStopSec=20
+
+[Install]
+WantedBy=multi-user.target
