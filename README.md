@@ -1,7 +1,7 @@
 Tautulli Podman Quadlet Deployment
 ==================================
 
-**Disclaimer:** I am not affiliated with, associated, authorized, endorsed by, or in any way officially connected with the Tautulli or Plex projects.
+**Disclaimer:** I am not affiliated with, associated, authorized, endorsed by, or in any way officially connected with the Tautulli or Plex projects. This should be a drop-in replacement, but back up any config files just in case.
 
 This guide demonstrates how to deploy **Tautulli** as a System Podman Quadlet on Ubuntu 25.10.
 
